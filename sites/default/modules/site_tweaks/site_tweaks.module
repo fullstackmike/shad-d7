@@ -1,0 +1,23 @@
+<?php
+
+function site_tweaks_node_view($node, $view_mode) {
+  if ($node->type == "log_post") {
+    if ($view_mode == 'full') {
+      drupal_goto('fishing-log');
+    }
+  }
+}
+
+function site_tweaks_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'log_post_node_form':
+      $form['actions']['submit']['#submit'][] = 'fishing_log_redirect_handler';
+      break;
+  }
+}
+
+function fishing_log_redirect_handler($form, &$form_state) {
+  if ($form_state['nid']) {
+    $form_state['redirect'] = 'fishing-log';
+  }
+}

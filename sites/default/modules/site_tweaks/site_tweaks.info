@@ -1,0 +1,13 @@
+name = Custom Site Tweaks
+description = modifications necessary to run this site. but not universally useful
+core = 7.x
+package = F1
+
+files[] = site_tweaks.module
+
+; Information added by Drupal.org packaging script on 2015-10-07
+version = "7.x-1.0"
+core = "7.x"
+project = "F1"
+datestamp = "1444254070"
+
